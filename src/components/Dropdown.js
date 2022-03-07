@@ -7,7 +7,6 @@ class Dropdown extends Component {
   }
 
   toggleMenuOpen = () => {
-    // console.log(this.state);
     this.setState({ menuOpen: !this.state.menuOpen });
   };
 
@@ -27,9 +26,17 @@ class Dropdown extends Component {
     });
   };
 
+  renderSelectedCity = () => {
+    return this.props.selectedCity ? (
+      <div>{this.props.selectedCity.name}</div>
+    ) : (
+      <div></div>
+    );
+  };
+
   render() {
-    console.log("Dropdown: ", this.state);
-    const { setSelectedCity } = this.props;
+    // console.log("Dropdown: ", this.state);
+    // console.log("Dropdown: ", this.props.selectedCity);
 
     return (
       <div className="ui form">
@@ -44,6 +51,7 @@ class Dropdown extends Component {
             }}
           >
             <i className="dropdown icon"></i>
+            {this.renderSelectedCity()}
             <div
               className={`menu ${
                 this.state.menuOpen ? "visible transition" : ""
