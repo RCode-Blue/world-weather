@@ -1,0 +1,19 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; // Setting 1rem === 10px; Assumes browser default of 1rem === 16px
+  font-family: $font-family-primary;
+}
+
+body {
+  background-color: $colour-yellow-1;
+  font-family: Quicksand;
+  font-weight: 400;
+}

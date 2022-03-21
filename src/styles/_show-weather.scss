@@ -1,0 +1,52 @@
+.weather-data {
+  padding: 2rem 1rem;
+
+  &__city {
+    padding-bottom: 2rem;
+    font-size: 4rem;
+  }
+  &__wrapper {
+    width: 25rem;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .main-icon {
+    width: 10rem;
+    height: auto;
+  }
+  &__description {
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  &__minmax {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around;
+    span {
+      padding: 0 1rem;
+      text-align: center;
+    }
+  }
+  &__humidity {
+    text-align: center;
+  }
+}
+
+.main-temperature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__current {
+    font-size: 3rem;
+  }
+  &__feels {
+    padding-top: 1.5rem;
+    font-size: 1.4rem;
+  }
+}

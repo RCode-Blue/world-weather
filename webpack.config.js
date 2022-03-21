@@ -29,6 +29,7 @@ var config = {
       },
       {
         use: ["style-loader", "css-loader", "sass-loader"],
+        // test: /\.scss/,
         test: /\.s[ac]ss$/i,
       },
     ],

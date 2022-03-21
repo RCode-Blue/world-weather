@@ -7,8 +7,6 @@ class WeatherDetails extends Component {
   }
 
   renderWeather = () => {
-    console.log(this.props.weatherData.res);
-
     if (!this.props.weatherData) {
       return <div></div>;
     }
@@ -21,26 +19,36 @@ class WeatherDetails extends Component {
     const { temp, temp_max, temp_min, feels_like, humidity } = weatherMain;
     const { description, main, icon } = weather[0];
     return (
-      <div>
-        <div className="">{name}</div>
-        <div className="">{description}</div>
-        <div className="">temperature: {temp}</div>
-        <div className="">
-          {" "}
-          <span> max: {temp_max}</span>
-          <span>min: {temp_min}</span>
+      <div className="weather-data">
+        <div className="weather-data__city">{name}</div>
+        <div className="weather-data__wrapper">
+          <div className="weather-data__main">
+            <img
+              className="main-icon"
+              src={`http://openweathermap.org/img/w/${icon}.png`}
+              alt=""
+            />
+
+            <div className="main-temperature">
+              <div className="main-temperature__current">{temp} &#176;C</div>
+              <div className="main-temperature__feels">
+                feels like: {feels_like}
+              </div>
+            </div>
+          </div>
+
+          <div className="weather-data__description">{description}</div>
+
+          <div className="weather-data__minmax">
+            <span> max: {temp_max} &#176;C</span>
+            <span>min: {temp_min} &#176;C</span>
+          </div>
+
+          <div className="weather-data__humidity">humidity: {humidity}</div>
+
+          <div className=""></div>
+          <div className=""></div>
         </div>
-        <div className="">feels like: {feels_like}</div>
-        <div className="">humidity: {humidity}</div>
-        <div className="">
-          {" "}
-          <img
-            src={`http://openweathermap.org/img/w/${icon}.png`}
-            alt=""
-          />{" "}
-        </div>
-        <div className=""></div>
-        <div className=""></div>
       </div>
     );
   };

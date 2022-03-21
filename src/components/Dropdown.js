@@ -20,7 +20,7 @@ class Dropdown extends Component {
           key={city.id}
           onClick={() => setSelectedCity(city)}
         >
-          {city.name}
+          <div className="world-dropdown__city">{city.name}</div>
         </div>
       );
     });
@@ -28,7 +28,9 @@ class Dropdown extends Component {
 
   renderSelectedCity = () => {
     return this.props.selectedCity ? (
-      <div>{this.props.selectedCity.name}</div>
+      <div className="world-dropdown__selected-city">
+        {this.props.selectedCity.name}
+      </div>
     ) : (
       <div></div>
     );
@@ -39,26 +41,24 @@ class Dropdown extends Component {
     // console.log("Dropdown: ", this.props.selectedCity);
 
     return (
-      <div className="ui form">
-        <div className="field">
-          <label className="label">Select a Country:</label>
+      <div className="world-dropdown">
+        <label className="world-dropdown__label">Select a Country:</label>
+        <div
+          className={`ui selection dropdown ${
+            this.state.menuOpen ? "visible active" : ""
+          }`}
+          onClick={() => {
+            this.toggleMenuOpen();
+          }}
+        >
+          <i className="dropdown icon"></i>
+          {this.renderSelectedCity()}
           <div
-            className={`ui selection dropdown ${
-              this.state.menuOpen ? "visible active" : ""
-            }`}
-            onClick={() => {
-              this.toggleMenuOpen();
-            }}
+            className={`menu ${
+              this.state.menuOpen ? "visible transition" : ""
+            } `}
           >
-            <i className="dropdown icon"></i>
-            {this.renderSelectedCity()}
-            <div
-              className={`menu ${
-                this.state.menuOpen ? "visible transition" : ""
-              } `}
-            >
-              {this.renderCities()}
-            </div>
+            {this.renderCities()}
           </div>
         </div>
       </div>

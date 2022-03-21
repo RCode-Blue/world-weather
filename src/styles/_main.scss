@@ -1,0 +1,18 @@
+.main {
+  width: 80vw;
+  margin: auto;
+  padding: 2rem 0;
+
+  &__title {
+    height: 6rem;
+    font-family: $font-family-secondary;
+    font-weight: 700;
+    font-size: 5rem;
+  }
+
+  button {
+    margin: 2rem 0;
+    padding: 0.5rem 1rem;
+    background-color: $colour-yellow-2;
+  }
+}

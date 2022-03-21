@@ -5,7 +5,6 @@ import ShowWeather from "./ShowWeather";
 import cityList from "../data/openWeather/cities";
 
 const KEY = process.env.OPEN_WEATHER;
-const baseUrl = `api.openweathermap.org/data/2.5/weather?`;
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +22,7 @@ class Main extends Component {
   getCityWeather = () => {
     const cityId = this.state.selectedCity.id;
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${KEY}`
+      `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${KEY}&units=metric`
     )
       .then((res) => res.json())
       .then((res) => this.setState({ weatherData: { res } }));
@@ -38,10 +37,11 @@ class Main extends Component {
   };
 
   render() {
-    // console.log("Main: ", this.state);
     return (
-      <div className="">
+      <div className="main">
+        <div className="main__title">World Weather</div>
         <Dropdown
+          className="main_dropdown"
           cities={cityList}
           selectedCity={this.state.selectedCity}
           setSelectedCity={this.setSelectedCity}
