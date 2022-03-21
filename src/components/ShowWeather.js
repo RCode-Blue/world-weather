@@ -44,7 +44,7 @@ class WeatherDetails extends Component {
             <span>min: {temp_min} &#176;C</span>
           </div>
 
-          <div className="weather-data__humidity">humidity: {humidity}</div>
+          <div className="weather-data__humidity">humidity: {humidity}%</div>
 
           <div className=""></div>
           <div className=""></div>
